@@ -1,0 +1,123 @@
+\documentclass[12pt,oneside]{book}
+\usepackage[]{biblatex}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[]{amsmath,amssymb,amsfonts, amsthm}
+\usepackage[]{tcolorbox}
+\usepackage[]{thmtools}
+\usepackage{geometry}
+\usepackage{breqn}
+\usepackage{multicol}
+\usepackage{varioref}
+\usepackage[colorlinks]{hyperref}
+\usepackage{cleveref}
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{cancel}
+\usepackage{color}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{extarrows}
+\usepackage{booktabs}
+\usetikzlibrary{fadings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{shapes}
+
+\hypersetup{%
+    pdfborder = {1 0 0}
+}
+
+\definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
+\definecolor{namecolor}{cmyk}{1,.50,0,.10} 
+
+%-----------------------------------------------------------------
+\declaretheorem[name=Lemma,Refname={Lemma,Lemmas}]{lem}
+\declaretheorem[name=Example, style=remark,Refname={Example,Examples}]{example}
+\declaretheorem[name=Proposition,Refname={Proposition,Proposition}]{prop}
+\declaretheorem[name=Theorem,numberwithin=chapter,Refname={Theorem,Theorems}]{thr}\declaretheorem[name=Definition,numberwithin=chapter,Refname={Defintion,Defintions}]{Definition}
+\declaretheoremstyle[
+    spaceabove=-6pt, 
+    spacebelow=6pt, 
+    headfont=\normalfont\bfseries, 
+    bodyfont = \normalfont,
+    postheadspace=1em, 
+    qed=$\blacksquare$, 
+    headpunct={:}]{myproofstyle} %<---- change this name
+\declaretheorem[name=Proof, style=myproofstyle, unnumbered]{Proof}
+\declaretheorem[name-Remark, style=remark, numberwithin=chapter]{remark}
+
+%-----------------------------------------------------------------
+\newtcolorbox{thmbox}[1][]{colback=white,colframe=red!75!black, arc=0mm}
+\newtcolorbox{definitionbox}[1][]{colback=white,colframe=green!75!black, arc=0mm}
+
+%----------------------------------------------------------------
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+\setlength{\parindent}{0em}
+
+%-----------------------------------------------------------------
+
+\newcommand{\un}[1]{\underline{#1}}
+\newcommand{\bwf}[1]{\textbf{#1}}
+
+\newcommand{\S}{\mathbb{S}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+
+%-----------------------------------------------------------------
+\begin{document}
+% ----------------------------------------------------------------
+\begin{titlepage}
+\newgeometry{left=7.5cm} %defines the geometry for the titlepage
+\pagecolor{titlepagecolor}
+\noindent
+\color{white}
+\makebox[0pt][l]{\rule{1.3\textwidth}{1pt}}
+\par  
+\noindent
+\textbf{\textsf{Indian Institute of Technology}} \textcolor{namecolor}{\textsf{Bombay}}
+
+\vfill
+\noindent
+{\huge \textsf{MA 412}}
+\vskip\baselineskip\noindent
+\textsf{December 2022}
+\end{titlepage}
+\restoregeometry% restores the geometry
+\nopagecolor% Use this to restore the color pages to white
+% ----------------------------------------------------------------
+
+\frontmatter
+\tableofcontents
+
+
+\mainmatter
+\include{chapter1.tex}
+
+\include{chapter4.tex}
+
+
+
+\end{document}
